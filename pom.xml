@@ -18,6 +18,9 @@
         <commons.io.version>2.6</commons.io.version>
         <micrometer.version>1.5.3</micrometer.version>
         <jsoup.version>1.14.3</jsoup.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <feign-jackson.version>11.8</feign-jackson.version>
+        <feign-okhttp.version>11.0</feign-okhttp.version>
     </properties>
 
     <parent>
@@ -29,7 +32,7 @@
     <!--    Required-->
     <groupId>com.kpa.test</groupId>
     <artifactId>services-base</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <!--    default packaging is .jar, supported packaging types are pom, jar, maven-plugin, ejb, war, ear, rar-->
     <!--    <packaging>war</packaging>-->
@@ -40,47 +43,54 @@
         <module>services-security</module>
     </modules>
 
+    <dependencyManagement>
     <!--    Maven brings in the dependencies of those dependencies (transitive dependencies)-->
-    <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId></groupId>-->
-        <!--            <artifactId></artifactId>-->
-        <!--            <version></version>-->
-        <!--                1.0 soft requirement-->
-        <!--                [1.0] hard requirement to use 1.0 only-->
-        <!--                [,1.0] version <= 1.0-->
-        <!--                [1.2,1.3] use any version between 1.2 and 1.3-->
-        <!--                [1.2,1.3) 1.2 <= version < 1.3-->
-        <!--            <scope></scope>-->
-        <!--              scopes can be compile, provided, runtime, test-->
-        <!--            <optional>true</optional>-->
-        <!--            <type>jar</type>-->
-        <!--            <classifier></classifier>-->
-        <!--              classifier can be sources, javadoc-->
-        <!--        </dependency>-->
+        <dependencies>
+            <!--        <dependency>-->
+            <!--            <groupId></groupId>-->
+            <!--            <artifactId></artifactId>-->
+            <!--            <version></version>-->
+            <!--                1.0 soft requirement-->
+            <!--                [1.0] hard requirement to use 1.0 only-->
+            <!--                [,1.0] version <= 1.0-->
+            <!--                [1.2,1.3] use any version between 1.2 and 1.3-->
+            <!--                [1.2,1.3) 1.2 <= version < 1.3-->
+            <!--            <scope></scope>-->
+            <!--              scopes can be compile, provided, runtime, test-->
+            <!--            <optional>true</optional>-->
+            <!--            <type>jar</type>-->
+            <!--            <classifier></classifier>-->
+            <!--              classifier can be sources, javadoc-->
+            <!--        </dependency>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>com.gs.eq.eqsre</groupId>-->
-        <!--            <artifactId>services-common</artifactId>-->
-        <!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+            <!--        <dependency>-->
+            <!--            <groupId>com.gs.eq.eqsre</groupId>-->
+            <!--            <artifactId>services-common</artifactId>-->
+            <!--        </dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

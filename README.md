@@ -172,16 +172,21 @@ public String utf8ToString (byte [] bytes) {
 
 ### Task Execution and Scheduling
 
-#### @EnableScheduling
+#### @EnableScheduling <span style="color:orange">**C**</span>
 - Enables support for the `@Schedule` annotation.
 
 #### @EnableAsync
 - Enables support for the `@Async` annotation.
 
-#### @Scheduled
+#### @Scheduled <span style="color:orange">**M**</span>
 - Indicates that a method should be called on a scheduled basis.
+```java
+@Scheduled(fixedRate=5000)
+@Scheduled(initialDelay=9000, fixedDelay=5000)
+@Scheduled(fixedRateString="${delay.fixedRateInMs:21600000}")
+```
 
-#### @Async
+#### @Async <span style="color:orange">**M**</span>
 - Indicates that a method may be called asynchronously.
 
 

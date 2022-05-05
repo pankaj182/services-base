@@ -10,10 +10,8 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>services-security</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <description>module for security services</description>
+    <artifactId>demo-jpa</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -22,22 +20,22 @@
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security.kerberos</groupId>
-            <artifactId>spring-security-kerberos-client</artifactId>
-            <version>1.0.1.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>${jsoup.version}</version>
-        </dependency>
-
-        <!-- Along with this you might also need to install lombok-->
-        <!-- "Enable annotation processing" checkbox in Settings->Compiler->Annotation Processors.-->
-        <dependency>
+            <!-- Along with this you might also need to install lombok-->
+            <!-- "Enable annotation processing" checkbox in Settings->Compiler->Annotation Processors.-->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.kpa.test.demo_jpa.JpaDemoApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -42,7 +42,7 @@ public class SwaggerConfig {
     return new Docket(DocumentationType.SWAGGER_2)
         .groupName(properties.getGroupName())
         .select().apis(RequestHandlerSelectors.basePackage(basePackage))
-        .paths(PathSelectors.regex(basePackage))
+        .paths(PathSelectors.regex(apiPath))
         .build()
         .apiInfo(apiInfo());
   }

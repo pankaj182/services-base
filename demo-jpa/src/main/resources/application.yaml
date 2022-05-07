@@ -38,3 +38,10 @@ management:
 
 server:
   port: 8080
+
+swagger:
+  basePackage: com.kpa.test.demo_jpa.controllers
+  path: /api/.*
+  title: Demo JPA
+  description: REST API to interact with Demo JPA Application
+  version: 1.0.0-SNAPSHOT

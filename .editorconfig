@@ -254,3 +254,4 @@ ij_editorconfig_spaces_around_assignment_operators = true
 ij_yaml_indent_sequence_value = true
 ij_yaml_keep_indents_on_empty_lines = false
 ij_yaml_space_before_colon = false
+ij_yaml_indent_size = 2

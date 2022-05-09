@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/person")
 public class PersonController {
 
     private final PersonRepository personRepository;
@@ -18,7 +18,7 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/person/names/{name}")
+    @GetMapping("/names/{name}")
     public List<Person> getPersonByName(@PathVariable String name,
                                         @RequestParam(required = false) boolean distinct,
                                         @RequestParam(required = false) boolean asc,
@@ -26,12 +26,12 @@ public class PersonController {
         return personRepository.findByNameIgnoreCase(name);
     }
 
-    @GetMapping("/person/names")
+    @GetMapping("/names")
     public List<Person> getAllPersons(@RequestParam(defaultValue = "100") int limit) {
         return personRepository.findAll();
     }
 
-    @PutMapping("/person/names")
+    @PutMapping("/names")
     public Person savePerson(@RequestBody Person person) {
         return personRepository.save(person);
     }

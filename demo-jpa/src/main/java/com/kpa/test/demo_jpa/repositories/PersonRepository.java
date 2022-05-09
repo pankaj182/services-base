@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * see <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords">spring jpa query</a>
  */
-public interface PersonRepository extends JpaRepository<Person, String> {
+public interface PersonRepository extends JpaRepository<Person, Long> {
     // equality Condition
     List<Person> findByName(String name);
     List<Person> findByNameIs(String name);

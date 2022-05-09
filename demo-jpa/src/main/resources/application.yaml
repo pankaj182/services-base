@@ -39,6 +39,17 @@ management:
 server:
   port: 8080
 
+# use this link to browse h2 db
+# http://localhost:8080/h2-console
+spring:
+  h2:
+    console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+
 swagger:
   basePackage: com.kpa.test.demo_jpa.controllers
   path: /api/.*
